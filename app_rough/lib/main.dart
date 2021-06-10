@@ -39,7 +39,7 @@ class SecondRoute extends StatelessWidget {
           onPressed: () {
             // Navigate back to first route when tapped.
           },
-          child: Text('Go back!'),
+          child: Text('Reverse!'),
         ),
       ),
     );
