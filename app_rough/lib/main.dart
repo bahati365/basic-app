@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
     title: '@Your Fingertips',
-    home: FirstRoute(),
+    theme: ThemeData(
+          primarySwatch: Colors.orange, accentColor: Colors.white),
+    home: MainPage(),
   ));
 }
 
 
-class FirstRoute extends StatelessWidget {
+class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,18 +18,46 @@ class FirstRoute extends StatelessWidget {
         title: Text('Welcome to @Your Fingertips'),
       ),
       body: Center(
-        child: ElevatedButton(
-          child: Text('Open route'),
-          onPressed: () {
-            // Navigate to second route when tapped.
-          },
+        child: Column(
+          children: [
+            new ButtonBar(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ElevatedButton(
+                  child: Text('YourLists'),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => YourLists()));
+                  },
+                ),
+                ElevatedButton(
+                  child: Text('Group Lists'),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TeamLists()));
+                  },
+                ),
+                ElevatedButton(
+                  child: Text('Settings'),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TeamLists()));
+                  },
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
   }
 }
 
-class SecondRoute extends StatelessWidget {
+
+class YourLists extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +68,7 @@ class SecondRoute extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             // Navigate back to first route when tapped.
+            Navigator.pop(context);
           },
           child: Text('Reverse!'),
         ),
@@ -47,19 +78,20 @@ class SecondRoute extends StatelessWidget {
 }
 
 
-class ThirdRoute extends StatelessWidget {
+class TeamLists extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Third Route"),
+        title: Text("Your Team Lists"),
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
+            Navigator.pop(context);
             // Navigate back to first route when tapped.
           },
-          child: Text('Go back!'),
+          child: Text('Back'),
         ),
       ),
     );
@@ -67,7 +99,22 @@ class ThirdRoute extends StatelessWidget {
 }
 
 
-// void main() {
-//   var list = [1, 2, 3, 4, 5];
-//   print(list);
-// }
+class Settings extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Your Team Lists"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+            // Navigate back to first route when tapped.
+          },
+          child: Text('Back'),
+        ),
+      ),
+    );
+  }
+}
