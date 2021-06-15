@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -9,49 +10,56 @@ void main() {
   ));
 }
 
-
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Welcome to @Your Fingertips'),
+        leading: Icon(Icons.account_circle_rounded),
+        actions: [
+          Icon(Icons.more_vert),
+        ],
       ),
+
       body: Center(
-        child: Column(
-          children: [
-            new ButtonBar(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ElevatedButton(
-                  child: Text('YourLists'),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => YourLists()));
-                  },
-                ),
-                ElevatedButton(
-                  child: Text('Group Lists'),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => TeamLists()));
-                  },
-                ),
-                ElevatedButton(
-                  child: Text('Settings'),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => TeamLists()));
-                  },
-                ),
-              ],
-            ),
-          ],
+        child: Container(
+          margin: const EdgeInsets.only(top: 200),
+          child: Column(
+            children: [
+              new ButtonBar(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ElevatedButton(
+                    child: Text('YourLists'),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => YourLists()));
+                    },
+                  ),
+                  ElevatedButton(
+                    child: Text('Group Lists'),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => TeamLists()));
+                    },
+                  ),
+                  ElevatedButton(
+                    child: Text('Settings'),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => TeamLists()));
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
-      ),
+      )
     );
   }
 }
@@ -71,12 +79,35 @@ class YourLists extends StatelessWidget {
             Navigator.pop(context);
           },
           child: Text('Reverse!'),
+        //   ElevatedButton: SpeedDial(
+        //     icon: Icons.share,
+        //     backgroundColor: Colors.amber,
+        //     children: [
+        //       SpeedDialChild(
+        //         child: Icon(Icons.face),
+        //         label: 'Social Network',
+        //         backgroundColor: Colors.amberAccent,
+        //         onTap: () {/* Do someting */},
+        //       ),
+        //       SpeedDialChild(
+        //         child: Icon(Icons.email),
+        //         label: 'Email',
+        //         backgroundColor: Colors.amberAccent,
+        //         onTap: () {/* Do something */},
+        //       ),
+        //       SpeedDialChild(
+        //         child: Icon(Icons.chat),
+        //         label: 'Message',
+        //         backgroundColor: Colors.amberAccent,
+        //         onTap: () {/* Do something */},
+        //         ),
+        //       ]),
+        // )
+          )
         ),
-      ),
-    );
+      );
   }
 }
-
 
 class TeamLists extends StatelessWidget {
   @override
@@ -118,3 +149,5 @@ class Settings extends StatelessWidget {
     );
   }
 }
+
+
